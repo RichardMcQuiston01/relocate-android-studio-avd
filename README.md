@@ -1,4 +1,4 @@
-# relocate-android-studio-avd
+# Relocate Android Studio AVD Files
 
 ## Author
 
@@ -15,6 +15,14 @@ A Windows utility that migrates Android Studio AVD (Android Virtual Device) emul
 - Windows 10/11
 - Python 3.9+
 - Android Studio (any recent version)
+
+## Buy Me a Coffee
+
+If this app, code, or repository has helped you or someone you know, please consider donating. I appreciate any help to offset the costs of development and/or AI Credits.
+
+[**Donate via Stripe**](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800), or scan:
+
+[![Donate via Stripe](./donate.svg)](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800)
 
 ## Installation
 
@@ -89,11 +97,3 @@ MIT — see [LICENSE](LICENSE) for details.
 ## Copyright
 
 (c)2026 R. M. McQuiston. All rights reserved.
-
-## Buy Me a Coffee
-
-If this app, code, or repository has helped you or someone you know, please consider donating. I appreciate any help to offset the costs of development and/or AI Credits.
-
-[**Donate via Stripe**](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800), or scan:
-
-[![Donate via Stripe](./donate.svg)](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800)
