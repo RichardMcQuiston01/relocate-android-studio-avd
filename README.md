@@ -39,7 +39,7 @@ If this app, code, or repository has helped you or someone you know, please cons
    pip install -r requirements.txt
    ```
 
-3. Copy `.env.example` to `.env` and set your source and destination paths:
+3. Create and edit your `.env` file. You can do this by hand:
    ```
    copy .env.example .env
    ```
@@ -50,6 +50,8 @@ If this app, code, or repository has helped you or someone you know, please cons
    SOURCE_PROJECTS_DIR=C:\Users\YourName\AndroidStudioProjects
    DEST_PROJECTS_DIR=D:\YourName\AndroidStudioProjects
    ```
+
+   Or use one of the helper scripts in `scripts/` — see [Managing `.env`](#managing-env) below.
 
 ## Usage
 
@@ -89,6 +91,34 @@ python migrate_android_studio.py --no-delete-originals
 ```
 
 All output is written to the console and appended to `migrate_android_studio.log` (configurable via `--log-file` or `LOG_FILE` in `.env`).
+
+## Managing `.env`
+
+`scripts/` has a CLI for creating and editing `.env` without hand-editing it, in three equivalent forms:
+
+| Script                       | Run with                                    |
+| ----------------------------- | -------------------------------------------- |
+| `scripts/manage_env.py`       | `python scripts/manage_env.py <command>`     |
+| `scripts/Manage-Env.ps1`      | `powershell -File scripts\Manage-Env.ps1 <command>` |
+| `scripts/manage-env.bat`      | `scripts\manage-env.bat <command>` (runs the PowerShell script from `cmd.exe`) |
+
+Commands (identical across all three):
+
+| Command             | Description                                              |
+| -------------------- | --------------------------------------------------------- |
+| `init [--force]`     | Create `.env` from `.env.example`                          |
+| `set KEY VALUE`      | Set a single key's value                                   |
+| `get KEY`            | Print a single key's value                                  |
+| `list`               | Print all key=value pairs currently set                     |
+| `edit`               | Interactively prompt for each known key, keeping current values as defaults |
+
+Example:
+
+```
+python scripts/manage_env.py init
+python scripts/manage_env.py set SOURCE_AVD_DIR "C:\Users\YourName\.android\avd"
+python scripts/manage_env.py edit
+```
 
 ## License
 

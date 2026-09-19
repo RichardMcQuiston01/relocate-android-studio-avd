@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A single-file Windows-only Python script (`migrate_android_studio.py`) that relocates Android Studio AVD emulator images and project files from `C:\Users\richard` to `F:\richard` to free up C: drive space.
+A Windows-only Python script (`migrate_android_studio.py`) that relocates Android Studio AVD emulator images and project files from one drive to another to free up space, configured via `.env` (see `.env.example`). `scripts/` holds CLI helpers for creating and editing that `.env` file.
 
 ## Running the script
 
@@ -22,9 +22,13 @@ python migrate_android_studio.py --no-delete-originals
 python migrate_android_studio.py --skip-projects
 ```
 
+## Managing `.env`
+
+`scripts/manage_env.py`, `scripts/Manage-Env.ps1`, and `scripts/manage-env.bat` are three equivalent CLIs (Python, PowerShell, and a batch wrapper that invokes the PowerShell script from `cmd.exe`) for creating and editing `.env`. Each supports `init`, `set KEY VALUE`, `get KEY`, `list`, and `edit` (interactive prompt per known key). They only touch the known `SOURCE_*`/`DEST_*`/`LOG_FILE` lines and preserve everything else in the file, including comments.
+
 ## Key design decisions
 
-- **Hardcoded paths**: `SOURCE_AVD_DIR`, `DEST_AVD_DIR`, `SOURCE_PROJECTS_DIR`, `DEST_PROJECTS_DIR` are constants at the top of the file — change them there if the source/destination changes.
+- **`.env`-driven paths**: `SOURCE_AVD_DIR`, `DEST_AVD_DIR`, `SOURCE_PROJECTS_DIR`, `DEST_PROJECTS_DIR` are read from `.env` via `python-dotenv` (see `.env.example`) and can be overridden per-run with `--source-avd-dir`, `--dest-avd-dir`, `--source-projects-dir`, `--dest-projects-dir`.
 - **Config patching**: After copying, all absolute path strings inside `*.avd/config.ini`, `hardware-qemu.ini`, `emu-launch-params.txt`, and snapshot `hardware.ini` are rewritten to point to the new location. Both backslash and forward-slash variants are replaced.
 - **Top-level INI files**: The `*.ini` files that sit directly in the AVD directory (one per AVD) are also patched — these are separate from the per-AVD config files inside `*.avd/` subdirectories.
 - **Environment variable**: `ANDROID_AVD_HOME` is written as a persistent user-level `REG_EXPAND_SZ` value in `HKEY_CURRENT_USER\Environment` via `winreg`. A new shell/restart is required for it to take effect.
