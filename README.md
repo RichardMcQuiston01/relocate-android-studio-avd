@@ -4,8 +4,7 @@
 
 - **Name:** Richard McQuiston
 - **Email:** [Contact Me](https://richardmcquiston.com/web-development-contact)
-- **Website:** [https://richardmcquiston.com](https://wwww.richardmcquiston.com/)
-- **Donate:** [Buy Me a Coffee](https://www.paypal.com/ncp/payment/VDTESHTRR7684)
+- **Website:** [https://richardmcquiston.com](https://www.richardmcquiston.com/)
 
 ## Description
 
@@ -22,7 +21,7 @@ A Windows utility that migrates Android Studio AVD (Android Virtual Device) emul
 1. Clone the repository:
 
    ```
-   git clone https://github.com/richardmcquiston/relocate-android-studio-avd.git
+   git clone https://github.com/richardmcquiston01/relocate-android-studio-avd.git
    cd relocate-android-studio-avd
    ```
 
@@ -90,3 +89,11 @@ MIT — see [LICENSE](LICENSE) for details.
 ## Copyright
 
 (c)2026 R. M. McQuiston. All rights reserved.
+
+## Buy Me a Coffee
+
+If this app, code, or repository has helped you or someone you know, please consider donating. I appreciate any help to offset the costs of development and/or AI Credits.
+
+[**Donate via Stripe**](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800), or scan:
+
+[![Donate via Stripe](./donate.svg)](https://donate.stripe.com/00w5kD3Gj1Xo9v7gVOcs800)
